@@ -22,7 +22,7 @@ ODEContext *makeODEContext(double eps, int size, double *initCondsVec, double *(
         context->systemSize = size;
         context->epsilon = eps;
         for (int i = 0; i < size; i++) {
-            solutionVector[i] = initCondsVec[0];
+            solutionVector[i] = initCondsVec[i];
         }
         return context;
     }
