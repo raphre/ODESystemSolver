@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #import "NumericalMethods.h"
 
-ODEContext *makeODEContext(double epsilon, int size, double *initCondsVec, double *(*ODE)(double x, double *y, double *dV)){
+ODEContext *makeODEContext(double eps, int size, double *initCondsVec, double *(*ODE)(double x, double *y, double *dV)){
     ODEContext *context = malloc(sizeof(ODEContext));
     
     if (context){
@@ -20,6 +20,7 @@ ODEContext *makeODEContext(double epsilon, int size, double *initCondsVec, doubl
         context->aux_memory = aux_mem;
         context->ODE = ODE;
         context->systemSize = size;
+        context->epsilon = eps;
         for (int i = 0; i < size; i++) {
             solutionVector[i] = initCondsVec[0];
         }
